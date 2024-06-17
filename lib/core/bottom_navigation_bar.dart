@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final screens = [
     const HomePage(),
     const Tabs(),
-    const SugarDataPage(),
+    const DataPage(),
     const Information(),
   ];
 
