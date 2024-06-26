@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:glucopuls_2/sugar_data/core/share/providers.dart';
 import 'package:glucopuls_2/sugar_data/infrastructure/random_floating_action_button.dart';
 import 'package:hive_flutter/adapters.dart';
-
-import 'list_view_pages.dart/random_list_view.dart';
 
 class RandomDataPage extends ConsumerStatefulWidget {
   const RandomDataPage({super.key});
@@ -42,6 +41,8 @@ class _RandomDataPageState extends ConsumerState<RandomDataPage> {
   }
 
   Widget _buildUI() {
+    // final randomListView = ref.watch(randomListViewProvider);
+    final dataPage = ref.watch(appListViewProvider);
     if (bloodSugarDataBox2 == null) {
       return const Center(
         child: CircularProgressIndicator(),
@@ -56,7 +57,7 @@ class _RandomDataPageState extends ConsumerState<RandomDataPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: randomDataPage(
+              child: dataPage.randomDataPage(
                 bloodSugarKeys2,
                 bloodSugarDataBox2,
               ),

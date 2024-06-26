@@ -6,9 +6,9 @@ class AppWidget extends ConsumerWidget {
   const AppWidget({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
+    return const MaterialApp(
         debugShowCheckedModeBanner: false,
         // theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
-        home: const BottomNavBar());
+        home: BottomNavBar());
   }
 }

@@ -8,6 +8,7 @@ FloatingActionButton fastingActionButton(
   TextEditingController textEditingController,
   WidgetRef ref,
   Box? bloodSugarDataBox,
+  Box? frontBox,
 ) {
   return FloatingActionButton(
     onPressed: () {
@@ -33,6 +34,7 @@ FloatingActionButton fastingActionButton(
                       'time': DateFormat.jms().format(DateTime.now()),
                     },
                   );
+                  frontBox?.add({'frontData': textEditingController.text});
 
                   Navigator.pop(context);
                   textEditingController.clear();

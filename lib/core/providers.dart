@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:glucopuls_2/converter/infrastructure/store_notifier.dart';
+import 'package:glucopuls_2/core/name_notifier.dart';
 
-final numberProvider =
-    StateNotifierProvider<MyConverter, String>((ref) => MyConverter());
+final nameProvider = StateNotifierProvider<Name, String>((ref) {
+  return Name();
+});

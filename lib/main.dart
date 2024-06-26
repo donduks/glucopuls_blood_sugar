@@ -8,5 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final documentDir = await getApplicationDocumentsDirectory();
   Hive.init(documentDir.path);
+  await Hive.openBox<String>('nameBox');
+  //await Hive.openBox('front_reading');
   runApp(const ProviderScope(child: AppWidget()));
 }

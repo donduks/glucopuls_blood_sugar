@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:glucopuls_2/core/providers.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -11,9 +12,12 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
+    // Get the saved name
+    final name = ref.watch(nameProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('welcome'),
+        title: Text('Welcome, $name '),
         centerTitle: true,
       ),
       body: _buildUI(),
@@ -21,8 +25,8 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Widget _buildUI() {
-    return SafeArea(child: Container()
-        //_pageList(ref),
-        );
+    return const Center(
+      child: Text(''),
+    );
   }
 }

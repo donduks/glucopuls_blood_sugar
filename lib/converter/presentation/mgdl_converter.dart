@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glucopuls_2/converter/infrastructure/number_buttons.dart';
-import 'package:glucopuls_2/core/providers.dart';
+import 'package:glucopuls_2/core/widgets/share/providers.dart';
 import 'package:glucopuls_2/core/widgets/colors.dart';
 import 'package:lottie/lottie.dart';
 

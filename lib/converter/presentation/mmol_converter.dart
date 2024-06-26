@@ -4,7 +4,7 @@ import 'package:glucopuls_2/converter/infrastructure/number_buttons.dart';
 import 'package:glucopuls_2/core/widgets/colors.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../core/providers.dart';
+import '../../core/widgets/share/providers.dart';
 
 class MmolConverter extends ConsumerStatefulWidget {
   const MmolConverter({super.key});

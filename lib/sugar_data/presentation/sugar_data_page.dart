@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:glucopuls_2/core/providers.dart';
 import 'package:hive/hive.dart';
 
 import '../../core/widgets/colors.dart';
@@ -28,6 +29,8 @@ class _DataPageState extends ConsumerState<DataPage> {
 
   @override
   Widget build(BuildContext context) {
+    final name = ref.watch(nameProvider);
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -49,10 +52,11 @@ class _DataPageState extends ConsumerState<DataPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      'Hello Duks',
+                      'Hello $name',
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         color: kButtonsTextColor,
+                        fontSize: 18,
                       ),
                     ),
                   ),

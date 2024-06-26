@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
-        "glucopuls"
-    ]
+        "flvp",
+        "glucopuls",
+        "mgdl"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
 }

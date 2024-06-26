@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glucopuls_2/sugar_data/infrastructure/fasting_floating_action_button.dart';
 import 'package:hive_flutter/adapters.dart';
 
-import 'list_view_pages.dart/fasting_list_view.dart';
+import '../core/share/providers.dart';
 
 class FastingDataPage extends ConsumerStatefulWidget {
   const FastingDataPage({super.key});
@@ -16,7 +16,8 @@ class _FastingDataPageState extends ConsumerState<FastingDataPage> {
   final TextEditingController textEditingController = TextEditingController();
 
   Box? bloodSugarDataBox;
-  Box? bloodSugarDataBox2;
+  // Box? bloodSugarDataBox2;
+  Box? frontBox;
 
   @override
   void initState() {
@@ -26,6 +27,11 @@ class _FastingDataPageState extends ConsumerState<FastingDataPage> {
         bloodSugarDataBox = box;
       });
     });
+    Hive.openBox('front_reading').then((box) {
+      setState(() {
+        frontBox = box;
+      });
+    });
   }
 
   @override
@@ -33,16 +39,13 @@ class _FastingDataPageState extends ConsumerState<FastingDataPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       floatingActionButton: fastingActionButton(
-        context,
-        textEditingController,
-        ref,
-        bloodSugarDataBox,
-      ),
+          context, textEditingController, ref, bloodSugarDataBox, frontBox),
       body: SafeArea(child: _buildUI()),
     );
   }
 
   Widget _buildUI() {
+    final fastingListView = ref.watch(appListViewProvider);
     if (bloodSugarDataBox == null) {
       return const Center(
         child: CircularProgressIndicator(),
@@ -57,11 +60,11 @@ class _FastingDataPageState extends ConsumerState<FastingDataPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: fastingDataPage(
-                bloodSugarKeys,
-                bloodSugarDataBox,
-              ),
-            ),
+                child: fastingListView.fastingDataPage(
+              bloodSugarKeys,
+              bloodSugarDataBox,
+             
+            )),
           ],
         );
       },

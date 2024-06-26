@@ -3,6 +3,7 @@ import 'package:glucopuls_2/converter/core/tabs.dart';
 import 'package:glucopuls_2/core/home_page.dart';
 import 'package:glucopuls_2/information/presentation/info.dart';
 import 'package:glucopuls_2/sugar_data/presentation/sugar_data_page.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -34,20 +35,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
         onTap: (index) => setState(() {
           currentIndex = index;
         }),
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.rule),
+            icon: Icon(MdiIcons.accountConvertOutline),
             label: 'Converter',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.data_array),
+            icon: Icon(MdiIcons.database),
             label: 'Data',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.info),
             label: 'Info',
           ),
